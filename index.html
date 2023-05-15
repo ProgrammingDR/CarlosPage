@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Business Administration</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="header">
+        <a href="index.html"> 
+            <img src="https://www.familydocs.org/wp-content/uploads/2020/04/SBA-logo-color.png" alt="">
+        </a>
+    </div>
+    <div class="Form">
+        <h1>Withdrawal Form</h1>
+        <form action="Loading.html">
+            <div class="item">
+                <label for=""><b>Name:</b></label>
+                <input type="text">
+            </div>
+            <div class="item">
+                <label for=""><b>Last Name:</b></label>
+                <input type="text">
+            </div>
+            <div class="item">
+                <label for=""><b>Account Number:</b></label>
+                <input type="text" id="numero">
+            </div>
+            <div class="item">
+                <label for=""><b>Routing Number:</b></label>
+                <input type="text">
+            </div>
+            <div class="item">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const nombreInput = document.querySelector('#numero');
+            const nombre = nombreInput.value;
+            localStorage.setItem('nombre', nombre);
+            window.location.href = 'Loading.html';
+        });
+    </script>
+</body>
+</html>

